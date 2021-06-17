@@ -26,5 +26,5 @@ jobs:
         #  npm ci
       - name: deploy
         run: |
-          zip -j deploy.zip ./dist/*
-          aws lambda create-function --function-name=github-actions-lambda-py --runtime python3.7 --zip-file=fileb://deploy.zip
+          zip deploy.zip ~/func1.py
+          aws lambda create-function --function-name=github-actions-lambda-py --runtime python3.7 --zip-file ~/deploy.zip
