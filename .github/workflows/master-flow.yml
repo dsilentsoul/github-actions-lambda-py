@@ -27,5 +27,6 @@ jobs:
       - name: deploy
         run: |
           pwd
-          zip /home/runner/deploy.zip /home/runner/func1.py
-          aws lambda create-function --function-name=github-actions-lambda-py --runtime python3.7 --zip-file /home/runner/deploy.zip
+          ls
+          zip -j deploy.zip ./dist/*
+          aws lambda create-function --function-name=github-actions-lambda-py --runtime python3.7 --zip-file=fileb://deploy.zip
