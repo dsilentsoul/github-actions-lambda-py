@@ -18,7 +18,7 @@ print(pwd)
 for i in l:
     if i[0]=='A' and re.search("^src/.*.py$", i[1]):
         #print(os.path.basename(i[1])[:-3])
-        full_path=os.path.basename(i[i])
+        full_path=os.path.basename(i[1])
         zip_file= f'zip deploy.zip {i[1]}'
         subprocess.run(zip_file.split())
         function_name=os.path.splitext(full_path)[0]
