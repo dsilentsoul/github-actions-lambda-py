@@ -22,5 +22,5 @@ for i in l:
         zip_file= f'zip deploy.zip {i[1]}'
         subprocess.run(zip_file.split())
         function_name=os.path.splitext(full_path)[0]
-        create_command= f'aws lambda create-function --function-name {function_name} --role arn:aws:iam::892244660070:role/{function_name} --runtime python3.7 --handler {function_name}.{function_name} --zip-file fileb://deploy.zip'
+        create_command= f'aws lambda create-function --function-name {function_name} --role arn:aws:iam::892244660070:role/github-actions-lambda-py --runtime python3.7 --handler {function_name}.{function_name} --zip-file fileb://deploy.zip'
         subprocess.run(create_command.split())
