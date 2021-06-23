@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      #- uses: actions/setup-python@v2
-       # with:
-        #  python-version: '3.x'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -28,5 +28,6 @@ jobs:
         run: |
           pwd
           ls
-          zip deploy.zip func1.py
-          aws lambda create-function --function-name=github-actions-lambda-py --role arn:aws:iam::892244660070:role/github-actions-lambda-py --runtime python3.7 --handler func1.func1 --zip-file=fileb://deploy.zip
+          #zip deploy.zip func1.py
+          #aws lambda create-function --function-name=github-actions-lambda-py --role arn:aws:iam::892244660070:role/github-actions-lambda-py --runtime python3.7 --handler func1.func1 --zip-file=fileb://deploy.zip
+          python pyscripts.py
