@@ -1,35 +1,35 @@
-name: Deploy in master
+# name: Deploy in master
 
-on:
-  push:
-    branches:
-    - master
+# on:
+#   push:
+#     branches:
+#     - master
 
-jobs:
-  deploy_lambda:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      #- name: python runtime
-       # env:
-         # CI: true
-       # run: |
-        #  npm ci
-      - name: deploy
-        run: |
-          pwd
-          ls
-          #zip deploy.zip func1.py
-          #aws lambda create-function --function-name=github-actions-lambda-py --role arn:aws:iam::892244660070:role/github-actions-lambda-py --runtime python3.7 --handler func1.func1 --zip-file=fileb://deploy.zip
-          python pyscripts.py
+# jobs:
+#   deploy_lambda:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 2
+#       - uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.x'
+#       - name: Configure AWS Credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: us-east-1
+#       #- name: python runtime
+#        # env:
+#          # CI: true
+#        # run: |
+#         #  npm ci
+#       - name: deploy
+#         run: |
+#           pwd
+#           ls
+#           #zip deploy.zip func1.py
+#           #aws lambda create-function --function-name=github-actions-lambda-py --role arn:aws:iam::892244660070:role/github-actions-lambda-py --runtime python3.7 --handler func1.func1 --zip-file=fileb://deploy.zip
+#           python pyscripts.py
